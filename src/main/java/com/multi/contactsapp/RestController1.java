@@ -14,7 +14,9 @@ public class RestController1 {
 
 	@Autowired
 	private ContactService contactService;
-	
+
+	// http://localhost:8000/MC_OpenAPI_REST2/contacts?output=xml
+	// http://localhost:8000/MC_OpenAPI_REST2/contacts?output=json
 	@RequestMapping(method = RequestMethod.GET)
 	public ContactList getContactList() {
 		return contactService.getContactList();
