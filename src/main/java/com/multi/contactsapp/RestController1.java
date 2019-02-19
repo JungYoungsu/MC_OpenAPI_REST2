@@ -1,6 +1,7 @@
 package com.multi.contactsapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,13 +31,15 @@ public class RestController1 {
 		return contactService.insertContact(c);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE)
-	public Result deleteContact(@RequestBody Contact c) {
+	@RequestMapping(value = "{no}", method = RequestMethod.DELETE)
+	public Result deleteContact(@PathVariable("no") int no, @RequestBody Contact c) {
+		c.setNo(no);
 		return contactService.deleteContact(c);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT)
-	public Result updateContact(@RequestBody Contact c) {
+	@RequestMapping(value = "{no}", method = RequestMethod.PUT)
+	public Result updateContact(@PathVariable("no") int no, @RequestBody Contact c) {
+		c.setNo(no);
 		return contactService.updateContact(c);
 	}
 }
