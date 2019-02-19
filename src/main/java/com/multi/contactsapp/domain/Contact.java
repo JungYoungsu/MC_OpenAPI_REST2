@@ -4,17 +4,21 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="contact")
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@XmlRootElement(name = "contact")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Contact {
 	private int no;
 	private String name;
 	private String tel;
 	private String address;
+
 	public Contact() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Contact(int no, String name, String tel, String address) {
 		super();
 		this.no = no;
@@ -22,31 +26,41 @@ public class Contact {
 		this.tel = tel;
 		this.address = address;
 	}
+
 	public int getNo() {
 		return no;
 	}
+
 	public void setNo(int no) {
 		this.no = no;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@JsonProperty("phone")
 	public String getTel() {
 		return tel;
 	}
+
+	@JsonProperty("phone")
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Contact [no=" + no + ", name=" + name + ", tel=" + tel + ", address=" + address + "]";
