@@ -1,6 +1,7 @@
 package com.multi.contactsapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.multi.contactsapp.domain.ContactList;
 import com.multi.contactsapp.domain.Result;
 import com.multi.contactsapp.service.ContactService;
 
+@CrossOrigin(origins="localhost:8000")
 @RestController
 @RequestMapping(value = "/contacts")
 public class RestController1 {
